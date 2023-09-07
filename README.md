@@ -1,52 +1,49 @@
-# Šablona pro projekt IEL, verze 2022/01
+# IEL project, version 2022/01
 
-Tento dokument popisuje použití šablony pro projekt IEL.
+This document describes the IEL project.
 
-## Použití
+## Usage
 ### Overleaf
-Pro import do Overleafu odstraňte ze stažené šablony adresář `packages` a soubor `latexmkrc` a takto upravenou šablonu znovu zabalte jako zip. Poté stačí v přehledu projektů kliknout na tlačítko New project (Nový projekt) --> Upload --> přetáhnout zip. Šablona bude připravena k použití. Přejmenujte si nově vytvořený projekt svým loginem.
+To import into Overleaf, remove the `packages` directory and the `latexmkrc` file from the downloaded template and repack the modified template as a zip. After that, just click on the New project button in the project overview --> Upload --> drag the zip. The template will be ready to use. Rename the newly created project with your login.
 
-### Lokálně 
-Stačí rozbalit zip archiv do libovolné složky. Lze překládat i z příkazové řádky. Pro tuto šablonu stačí:
+### Locally
+Just unzip the zip archive to any folder. It can also be translated from the command line. All you need for this template is:
 ```
-pdflatex 00-projekt.tex xlogin00.pdf
+pdflatex 00-project.tex xonufr00.pdf
 
-pdflatex 00-projekt.tex xlogin00.pdf
+pdflatex 00-project.tex xonufr00.pdf
 ```
-Pokud chcete použít balík circuitikz s parametry v šabloně, použijte:
+If you want to use the circuitikz package with parameters in the template, use:
 
-`latexmk -pdf 00-projekt.tex`
+`latexmk -pdf 00-project.tex`
 
-příkaz `latexmk` přeloží projekt s balíkem circuitikz, který je přiložený k šabloně.
+the `latexmk` command compiles the project with the circuitikz package that comes with the template.
 
-### Merlin
-Distribuce LaTeXu je nainstalována i na serveru merlin. Pro překlad šablony na merlinovi můžete použít stejné příkazy jako ty použité v sekci Lokálně.
-
-# Struktura šablony
-V této části souboru README je stručně představena struktura šablony.
+# Project structure
+This section of the README file briefly introduces the structure of the project.
 
 * fig
-  Adresář s obrázky. Obsahuje logo FIT VUT v české a anglické verzi obvody k jednotlivým příkladům
+  Directory with images. Contains the FIT BUT logo in the Czech and English versions and circuits for individual examples
 * packages
-  Adresář s balíky, které nemusí být součástí instalace LaTeXu (např. na merlinovi). Aktuálně je přiložena nejnovější verze balíku circuitikz. Lze přidávat i další balíky podle potřeby.
-* kořenový adresář
-  V kořenovém adresáři se nachází následující soubory, které modifikují studenti :
-  * 00-projekt.tex 
-     Základní soubor šablony. Obsahuje základní nastavení, vkládá se v něm hlavička a dokumenty s příklady. Kromě hlavičky a případného nastavení jazyka není třeba tento soubor měnit.
+  Directory with packages that may not be part of the LaTeX installation. The latest version of the circuitikz package is currently attached. Additional packages can be added as needed.
+* root directory
+  The root directory contains the following files that students modify:
+  * 00-project.tex
+     Basic template file. It contains basic settings, a header and documents with examples are inserted into it. Apart from the header and possible language settings, there is no need to change this file.
   * 01-pr1.tex -- 05-pr5.tex
-     Soubory, které obsahují jednotlivé příklady. Parametr příkazů prvniZadani, druhyZadani určuje, jaké zadání se vysazí do tabulky se zadáním a jaká skupina se doplní do odpovědní tabulky.
+     Files that contain individual examples. The parameter of the firstEntry, secondEntry commands determines which entry is placed in the entry table and which group is added to the response table.
   * 06-tab.tex
-     Soubor, který obsahuje odpovědní tabulku. Skupiny by se měly doplnit automaticky, doplňujete pouze výsledky a jednotky.
-* Další soubory v kořenovém adresáři, které není třeba modifikovat:
-  * fitiel.cls
-     Definice stylu dokumentu. 
+     The file that contains the response table. Groups should be added automatically, you only add results and units.
+* Additional files in the root directory that do not need to be modified:
+  * wick.cls
+     Definition of document style.
   * latexmkrc
-     Nastavení pro utilitu latexmk (umístění balíků, podsložka packages). 
+     Settings for the latexmk utility (location of packages, packages subfolder).
   * README.md
-     Tento dokument.
+     This document.
 
-# Další zdroje informací
-Velmi doporučuji webovou knihu https://en.wikibooks.org/wiki/LaTeX, pokud s LaTeXem začínáte. Pokud řešíte problémy, google.
+# Other sources of information
+I highly recommend the web book https://en.wikibooks.org/wiki/LaTeX if you are new to LaTeX. If you're having trouble, google it.
 
-# Autor
-Za šablonnu zodpovídá výhradně ing. Petr Veigend (iveigend@fit.vut.cz), dotazy směřujte prosím výhradně na něj. 
+# Author
+Ivan Onufriienko(xonufr00@fit.vut.cz) is solely responsible for the project, please direct all questions to him.
