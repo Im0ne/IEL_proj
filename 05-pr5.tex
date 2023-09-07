@@ -1,0 +1,110 @@
+\section{Příklad 5}
+% Jako parametr zadejte skupinu (A-H)
+\patyZadani{G}
+
+\subsection{Řešení: Sestavení diferenciální rovnice}
+
+Sestavíme rovnici pro proud na cívce i\textsubscript{L}:
+\begin{align*}
+	i'_L &= \frac{U_L}{L}
+\end{align*}
+
+Napětí na cívce si můžeme vyjádřit za pomocí 2. Kirchhoffova zákona:
+
+\begin{align*}
+	U &= U_R + U_L\\
+	U_L &= U-U_R
+\end{align*}
+
+Vzniklou diferenciální rovnici upravíme:
+
+\begin{align*}
+	i'_L &= \frac{U-U_R}{L} \\
+	i'_L &= \frac{U-Ri_L}{L} \\
+	Li'_L + Ri_L &= U
+\end{align*}
+
+Dosadíme naše hodnoty:
+
+\begin{align*}
+	50i'_L + 25i_L &= 10
+\end{align*}
+
+Podívejme se na obecný tvar pro cívku, jestli už máme co potřebujeme:
+
+\begin{align*}
+	i_L(t)=K(t)\times e^{\lambda t}
+\end{align*}
+
+Chybí nám $\lambda$ a $K(t)$, tak ty proměnné musíme najít a vypočítat.
+
+\begin{figure}[H]
+Vzhledem k tomu, že neznáme $\lambda$ ani K(t), tak si je musíme spočítat, začneme s $\lambda$:
+
+\begin{align*}
+	50\lambda + 25 &= 0 \\
+	\lambda &= - \frac{25}{50} \\
+	\lambda &= -\frac{1}{2}
+\end{align*}
+\end{figure}
+
+Nyní můžeme $\lambda$ dosadit do obecného tvaru, který pak zderivujeme, abychom měli diferenciální tvar rovnice naší cívky, pro dosazení do rovnice která nám vyšla předtím.
+
+Nejprve tedy obecný tvar a jeho derivace:
+\begin{align*}
+	i_L(t) &= K(t)\times e^{\lambda t}\\
+	i_L(t) &= K(t)\times e^{-\frac{1}{2}t} \\
+	i_L(t)'&= K(t)'\times e^{-\frac{1}{2}t} - \frac{1}{2}K(t)e^{-\frac{1}{2}t}
+\end{align*}
+
+Nyní můžeme tedy dosadit do naší diferenciální rovnice:
+\begin{align*}
+	50(K(t)&'\times e^{-\frac{1}{2}t} - \frac{1}{2}K(t) \times e^{-\frac{1}{2}t}) + 25(K(t)\times e^{-\frac{1}{2}t}) = 10 \\
+	50K(t)'&\times e^{-\frac{1}{2}t} - 25K(t)\times e^{-\frac{1}{2}t} + 25K(t)\times e^{-\frac{1}{2}t} = 10 \\
+	50K(t)'&\times e^{-\frac{1}{2}t} = 10 \\
+	K(t)'&\times e^{-\frac{1}{2}t} = \frac{10}{50} \\
+	K(t)'&\times e^{-\frac{1}{2}t} = \frac{1}{5} \\
+	K(t)'& = \frac{1}{5}\times e^{\frac{1}{2}t}
+\end{align*}
+
+Máme $K(t)$. Teda skoro máme, v obecném tvaru to není derivace, takže to musíme ještě zintegrovat:
+
+\begin{align*}
+	K(t) &= \int \frac{1}{5}\times e^{\frac{1}{2}t} dt \\
+	K(t) &= \frac{2}{5} e^{\frac{1}{2}t} + C
+\end{align*}
+
+Nyní už máme co potřebujeme, tak dosadíme do analytické rovnice a pak provedeme kontrolu:
+\begin{align*}
+	i_L(t) &= K(t) \times e^{\lambda t} \\
+	i_L(t) &= (\frac{2}{5} e^{\frac{1}{2}t} + C) \times e^{-\frac{1}{2} t} \\
+	i_L(t) &= \frac{2}{5} + C \times e^{-\frac{1}{2} t}
+\end{align*}
+
+Nyní si vypočítáme C dle počáteční podmínky v čase $t = 0$:
+\begin{align*}
+	i_L(0) &= \frac{2}{5} + C \times e^{-\frac{1}{2} \times 0} \\
+	7 &= \frac{2}{5} + C \\
+	C &= 7 - \frac{2}{5} = \frac{33}{5}
+\end{align*}
+
+Konečná rovnice má tento tvar:
+\begin{align*}
+	i_L(t) & = \frac{2}{5} + \frac{33}{5} \times e^{-\frac{1}{2} t}
+\end{align*}
+
+\subsection{Kontrola}
+
+Ještě si zkontrolujeme výpočet dosazením do diferenciální rovnice:
+\begin{align*}
+	i_L(t)'&= \frac{1}{5}\times e^{\frac{1}{2}t}\times e^{-\frac{1}{2}t} - \frac{1}{2}\left(\frac{2}{5} e^{\frac{1}{2}t} + \frac{33}{5}\right)e^{-\frac{1}{2}t}\\
+	i_L &= \frac{2}{5} + \frac{33}{5} \times e^{-\frac{1}{2} t}
+\end{align*}
+
+\begin{align*}
+	50i'_L + 25i_L&=10 \\
+	50\left(\frac{1}{5}\times e^{\frac{1}{2}t}\times e^{-\frac{1}{2}t} - \frac{1}{2}\left(\frac{2}{5} e^{\frac{1}{2}t} + \frac{33}{5}\right)e^{-\frac{1}{2}t}\right) + 25\left(\frac{2}{5} + \frac{33}{5} \times e^{-\frac{1}{2} t}\right) & = 10\\
+	-165e^{-\frac{t}{2}}+25\left(\frac{33}{5}e^{-\frac{1}{2}t}+\frac{2}{5}\right)&=10 \\
+	-165e^{-\frac{t}{2}}+7+165e^{-\frac{t}{2}}&=10 \\
+	\boldsymbol{10}&\boldsymbol{=10}
+\end{align*}
